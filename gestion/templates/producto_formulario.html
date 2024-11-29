@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="mx-auto p-2" style="width: 200px;" >{% if object %}Editar Producto{% else %}Nuevo Producto{% endif %}</h1>
+  <div class="mx-auto p-2" style="width: 200px;height:auto;">
+    <form method="post" >
+      {% csrf_token %}
+      <div class="form-floating mb-3">
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{% url 'producto-list' %}" class="btn btn-secondary">Cancelar</a>
+      </div>
+    </form>
+  </div> 
+{% endblock %}
